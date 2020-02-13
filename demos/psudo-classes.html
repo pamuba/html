@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+     a:link{
+         color:red;
+     }
+     a:visited{
+         color:green;
+     }
+     a:hover{
+         color:hotpink;
+     }
+     a:active{
+         color:blue;
+     }
+     /* input:invalid+span::after{
+         content:'✖';
+     }
+     input:valid+span::after{
+         content:'✓';
+     } */
+     input:required + span::after{
+         content:'*';
+     }
+     textarea:read-only{
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background: rosybrown;
+     }
+     .unselectable {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    </style>
+</head>
+<body style="font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+   <form>
+    <a href="https://wwww.google.com" target="_blank">Go To Google</a><br>
+    First Name:<input type="text" required><span></span><br>
+    Last Name:<input type="text" required><span></span><br>
+    <button>CLICK</button>
+    <br>
+    <br>
+    <textarea readonly>Firefox and IE10 have actually implemented the readonly attribute, but don’t yet have support for these pseudo-classes.</textarea>
+    <textarea readwrite>Firefox and IE10 have actually implemented the readonly attribute, but don’t yet have support for these pseudo-classes.</textarea>
+    <br>
+    <p class="unselectable">Hey, you can't select this text!</p>
+   </form>
+</body>
+</html>

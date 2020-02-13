@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      canvas {
+      /* background: grey; */
+      border: 1px solid grey;
+    }
+    </style>
+    
+</head>
+<body>
+    <canvas id="canvas" width="500px" height="200px"></canvas>
+    <script>
+     (function () {
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+
+      // Mario variables
+      const MARIO_WIDTH = 32;
+      const MARIO_HEIGHT = 39;
+
+      const mario = new Image();
+      mario.src = 'images/m.png';
+      mario.onload = () => {
+        ctx.drawImage(
+          // Image
+          mario,
+          // Selection
+          0, // sx
+          MARIO_HEIGHT * 4, // sy
+          MARIO_WIDTH, // sWidth
+          MARIO_HEIGHT, // sHeight
+          // Drawing
+          0, // dx
+          0, // dy
+          MARIO_WIDTH, // dWidth
+          MARIO_HEIGHT // dHeight
+        );
+      };
+
+      let currentFrame = 0;
+
+      const update = () => {
+        ctx.clearRect(0, 0, 500, 200);
+        ctx.drawImage(
+          // Image
+          mario,
+          // Selection
+          // -- Add MARIO_WIDTH to sx on each consecutive tick.
+          // -- %8 to wrap the values around to keep repeating 0 to 8.
+          // -- 8 Because in the sprite we have 8 mario poses in one row.
+          (MARIO_WIDTH * (Math.floor(currentFrame) % 8)),
+          MARIO_HEIGHT * 4, // sy
+          MARIO_WIDTH, // sWidth
+          MARIO_HEIGHT, // sHeight
+          // Drawing
+          250, // dx
+          100, // dy
+          MARIO_WIDTH, // dWidth
+          MARIO_HEIGHT // dHeight
+        );
+
+        console.log(Math.floor(currentFrame) % 8 + "====" + (MARIO_WIDTH*(Math.floor(currentFrame) % 8)));
+        currentFrame += .2;
+        requestAnimationFrame(update);
+      };
+      update();
+
+    })();
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas style="border:1px solid red" height="500px" width="500px" id="myCanvas"></canvas>
+
+
+    <!-- <script>
+        var img1 = new Image();
+        img1.src = 'images/images.jpg';
+        img1.alt = 'alt';
+        document.body.appendChild(img1);
+    </script> -->
+
+
+    <!-- <script>
+        var canvas = document.getElementById("myCanvas");
+        var ctx = canvas.getContext("2d");
+        const img = new Image();
+        img.src = "images/images.jpg"
+        img.onload = () => {
+            ctx.drawImage(img, 0, 0);
+        }
+    </script> -->
+
+
+
+
+
+    <img style="visibility: hidden;" id="img" src="images/images.jpg">
+    <script>
+        window.onload = function() {
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+
+            var img = document.getElementById("img");
+            ctx.drawImage(img, 10, 10);
+
+            var img1 = new Image();
+            img1.src = "images/images.jpg";
+            ctx.drawImage(img1,10,200);
+        };
+
+    </script>
+
+
+</body>
+</html>

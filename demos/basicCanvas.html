@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+        canvas{
+           
+            height:100%;
+            width:100%;
+            border: 1px red solid;
+        }
+        body{
+            padding: 0px;
+            margin:0px;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", draw);
+        function draw(){
+            canvas = document.getElementById("canvas");
+            context = canvas.getContext('2d');
+
+            //Draw a rectangle using the rect primitive
+            // context.fillStyle = "rgb(0,255,0)";
+            // context.fillRect(30,30,180,100);
+            // context.strokeStyle="#0000FF";
+            // context.strokeRect(30,30,180,100);
+
+            //Draw a triangle using a path
+            context.beginPath();
+            context.moveTo(10,10);
+            context.lineTo(30,50);
+            context.lineTo(5,50);
+            context.closePath();
+            context.fillStyle = "rgba(0, 0, 255, 1)";  // transparent
+            context.fill();
+            context.strokeStyle="#0000FF";
+            context.stroke();
+        }
+    </script>
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas">
+
+    </canvas>
+</body>
+</html>

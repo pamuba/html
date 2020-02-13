@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function getValue(){
+            document.getElementById("result").innerHTML = null;
+            let values = document.getElementsByTagName("input");
+            for (let index = 0; index < values.length-1; index++) {
+                if(values[index].checked){
+                    document.getElementById("result").innerHTML += values[index].value+" ";
+                }
+            }
+        }
+    </script>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif;">
+    <input type="checkbox" id="sony" name="sony" value="sony" checked></input>
+    <label for="sony">SONY</label>
+    <input type="checkbox" id="panasonic" name="panasonic" value="panasonic"></checkbox>
+    <label for="panasonic">PANASONIC</label>
+    <input type="checkbox" id="fd" name="fd" value="fd"></checkbox>
+    <label for="fd" name="fd" value="fd">FD</label>
+    <input type="checkbox" id="philips" name="philips" value="philips"></checkbox>
+    <label for="philips">PHILIPS</label><br>
+    <input type="button" onclick="getValue()" value="SUBMIT"></type>
+    <label id="result"></label>
+    
+   
+</body>
+</html>

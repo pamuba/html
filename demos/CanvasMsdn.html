@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <style>
+     canvas{
+         border: 1px solid red;
+         height:70%;
+         width:70%;
+
+         image-rendering: -moz-crisp-edges;
+         image-rendering: -webkit-crisp-edges;
+         image-rendering: pixelated;
+         image-rendering: crisp-edges;
+     }
+     body{
+         margin:0%;
+     }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas">
+
+    </canvas>
+    <script>
+        var ctx = document.getElementById('canvas').getContext('2d');
+
+        //Fill
+
+        // ctx.fillRect(0, 0, 150, 150);   // Draw a rectangle with default settings
+        // ctx.save();                  // Save the default state
+        
+        // ctx.fillStyle = '#09F';      // Make changes to the settings
+        // ctx.fillRect(15, 15, 120, 120); // Draw a rectangle with new settings
+
+        // ctx.save();                  // Save the current state
+        // ctx.fillStyle = '#FFF';      // Make changes to the settings
+        // ctx.globalAlpha = 0.5; 
+        // ctx.fillRect(30, 30, 90, 90);   // Draw a rectangle with new settings
+
+        // ctx.restore();               // Restore previous state
+        // ctx.fillRect(45, 45, 60, 60);   // Draw a rectangle with restored settings
+
+        // ctx.restore();               // Restore original state
+        // ctx.fillRect(60, 60, 30, 30);   // Draw a rectangle with restored settings
+
+
+
+        //Translate
+        // for(let i=1;i<=5;i++){
+        //     ctx.fillStyle='rgb('+12*i+','+51*i+',255)';
+        //     ctx.translate(25, 0);
+        //     ctx.fillRect(0,0,20,20);
+        // }
+
+
+        // for (var i = 0; i < 3; i++) {
+        //     for (var j = 0; j < 3; j++) {
+        //         ctx.save();
+        //         ctx.fillStyle = 'rgb(' + (51 * i) + ', ' + (255 - 51 * i) + ', 255)';
+        //         ctx.translate(10 + j * 50, 10 + i * 50);
+        //         ctx.fillRect(0, 0, 25, 25);
+        //         ctx.restore();
+        //     }
+        // }
+
+
+
+        //Rotating 
+        ctx.fillStyle='#0095DD';
+        ctx.rotate((Math.PI/180)*25);
+        ctx.fillRect(30,30,100,100);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form oninput="amount.value = (principal.valueAsNumber * rate.valueAsNumber) / 100">
+        <fieldset>
+            <legend style="font-weight:bold;">Interest Calculator</legend>
+            <label for="principal">Amount to invest:$</label>
+            <input type="number" min="0" id="principal" value="1000">
+            <p><label for="rate">Interest Rate:</label>
+            <input type="range" id="rate" min="0" max="20" name="rate" value="0" oninput="thisRate.value=rate.value">
+            <output name="thisRate" for="rate">0</output><span>%</span></p>
+            <p>Interest Received: <strong>$<output name="amount" for="principal rate">0</output></strong></p>
+        </fieldset>
+    </form>
+</body>
+</html>

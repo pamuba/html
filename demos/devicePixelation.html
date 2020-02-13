@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        canvas {
+            border: 1px solid red;
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", draw);
+        function draw() {
+            var canvas = document.getElementById('canvas');
+            var ctx = canvas.getContext('2d');
+
+            // //set the display size(CSS pixels)
+            // var size = 200;
+            // canvas.style.width = size + "px";
+            // canvas.style.height = size + "px";
+
+            // //set the actual size in memory
+            // var scale = window.devicePixelRatio;
+
+            // canvas.height = size * scale;
+            // canvas.width = size * scale;
+
+            // //Normalize the coordinate system to use css pixels
+            // ctx.scale(scale, scale);
+
+            // ctx.fillStyle = "#bada55";
+            // ctx.fillRect(10, 10, 300, 300);
+            // ctx.fillStyle = "#ffffff";
+            // ctx.font = '18px Arial';
+            // ctx.textAlign = 'center';
+            // ctx.textBaseline = 'middle';
+
+            // var x = size / 2;
+            // var y = size / 2;
+
+            // var textString = "I love MDN";
+            // ctx.fillText(textString, x, y);
+
+            // Get the device pixel ratio, falling back to 1.
+            var dpr = window.devicePixelRatio || 1;
+            // Get the size of the canvas in CSS pixels.
+            var rect = canvas.getBoundingClientRect();
+            // Give the canvas pixel dimensions of their CSS
+            // size * the device pixel ratio.
+            canvas.width = rect.width * dpr;
+            canvas.height = rect.height * dpr;
+            var ctx = canvas.getContext('2d');
+            // Scale all drawing operations by the dpr, so you
+            // don't have to worry about the difference.
+            ctx.scale(dpr, dpr);
+
+            ctx.fillStyle = "#bada55";
+            ctx.fillRect(10, 10, 300, 300);
+            ctx.fillStyle = "#ffffff";
+            ctx.font = '18px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            var textString = "I love MDN";
+            ctx.fillText(textString, 150, 150);
+
+        }
+    </script>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+</body>
+
+</html>

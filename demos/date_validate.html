@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+     span::after{
+         padding-left:15px;
+     }
+     input:invalid+span::after{
+         content:'✖';
+     }
+     input:valid+span::after{
+         content:'✓';
+     }
+    </style>
+</head>
+<body style="font-family: Arial, Helvetica, sans-serif;">
+    <form>
+        <label>
+            Choose your preferred party date(required, Feb 12 to 20th):
+            <input type="date" name="party" min="2020-02-12" max="2020-02-20" required>
+            <span class="validity"></span>
+        </label>
+        <p>
+            <button>Submit</button>
+        </p>
+    </form>
+</body>
+</html>

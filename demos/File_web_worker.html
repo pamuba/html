@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" multiple />
+    <output id="error"></output>
+    <script>
+        var worker = new Worker("worker.js");
+
+        worker.onmessage = function(e){
+            console.log(e.data);
+        };
+        worker.onerror = function(e){
+            document.querySelector('#error').textContent = ['ERROR: Line ', e.lineno, ' in ', e.filename, ': ', e.message].join('');
+        };
+
+        document.querySelector('input[type="file"]').addEventListener('change', function(e){
+           worker.postMessage(this.files);
+        }, false);
+    </script>
+</body>
+</html>
